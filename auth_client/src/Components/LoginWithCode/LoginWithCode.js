@@ -29,7 +29,7 @@ function LoginWithCode() {
     })
     
     }
-
+        //submitHandler
         const verifyCode=async(e)=>{ 
             e.preventDefault();
             if(verificationCode.length>0){
@@ -42,6 +42,7 @@ function LoginWithCode() {
                }
         })}}
     
+        //reRoute to User's Page
         const getUserProfile=()=>{
           const user_id=localStorage.getItem("USER_ID")
           const user_token=localStorage.getItem("AUTH_TOKEN")
@@ -60,7 +61,7 @@ function LoginWithCode() {
       },[state.isLogin])
 
       
-
+        //Get current failure Message/error message
         useEffect(()=>{
           setMessage(state.failureMessage)
         },[state.failureMessage])
