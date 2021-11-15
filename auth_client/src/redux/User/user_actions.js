@@ -38,12 +38,12 @@ export const verifyEmailCode=(email,token,verificationCode)=>{
             body:JSON.stringify(body)
         })
         const parseRes = await res.json();
-        console.log(parseRes.success)
+        //console.log(parseRes.success)
         const success=parseRes.success;
         const message=parseRes.message
         const results=parseRes.results
-        console.log(success,results,message)
-        if(success==="true"){
+        //console.log(success,results,message)
+        if(parseRes.success="true"){
             dispatch({
                     type:actionTypes.VERIFY_EMAIL_TOKEN,
                     payload:{
@@ -51,7 +51,7 @@ export const verifyEmailCode=(email,token,verificationCode)=>{
                          isLogin:results.isLogin
                 }})     
                 try {
-                    if(parseRes.message==="User signed up successfully."){
+                    if(parseRes.results.isLogin="true"){
 
                         const user=results.user
                         const firstName=user.firstName
@@ -77,7 +77,7 @@ export const verifyEmailCode=(email,token,verificationCode)=>{
                           console.log("user must Sign up")           
                     } 
                 } catch (error) {
-                    
+                    console.error(error.message)
                 }
                 
                 
@@ -107,14 +107,14 @@ export const signUp=(firstName,email,token,referredCodeKey,phoneNumber,agreeToPr
     agreeToPrivacyPolicy=true;
     return async(dispatch,getState)=>{
         const body={firstName,email,token,referredCodeKey,phoneNumber,agreeToPrivacyPolicy};
-        console.log(JSON.stringify(body))
+        //console.log(JSON.stringify(body))
         const res=await fetch("https://hiring.getbasis.co/candidate/users",{
             method:"POST",
             headers:{"Content-Type":"application/json"},
             body:JSON.stringify(body)
         }) 
         const parseRes = await res.json();
-       console.log(parseRes);
+       //console.log(parseRes);
 
        
         if(parseRes.message==="User signed up successfully."){
@@ -157,7 +157,7 @@ export const resendToken=(email,token)=>{
             body:JSON.stringify(body)
         }) 
         const parseRes = await res.json();
-        console.log(parseRes)
+        //console.log(parseRes)
         dispatch({
             type:actionTypes.RESEND_TOKEN,
                     payload:{

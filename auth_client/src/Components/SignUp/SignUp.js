@@ -51,7 +51,7 @@ function SignUp(props) {
   }
 
     const checkRefCode=()=>{
-        if(!refCode.length===6 || !refCode.match(/^([0-9]|[a-z])+([0-9a-z]+)$/i)){
+        if(refCode.length!==6 || !refCode.match(/^([0-9]|[a-z])+([0-9a-z]+)$/i)){
             setMessage(`You cannot sign up with an invalid referredCodeKey value!
             referredCodeKey is an alphanumeric string of length 6.`)
            
@@ -62,11 +62,7 @@ function SignUp(props) {
         })} 
     }
         
-    useEffect(()=>{
-        if(checkRef.length>6){
-            checkRefCode();}
-        },
-        [])
+
    
         useEffect(()=>{      
                 getUserProfile();
@@ -99,7 +95,7 @@ function SignUp(props) {
                 </div>
                 <div className="input_control">
                 <label htmlFor="refCode">refferedCodeKey</label>
-                <input id="refCode" type="text" value={refCode} onChange={(e)=>setrefCode(e.target.value)}/>
+                <input id="refCode" type="text" value={refCode} onChange={(e)=>{setrefCode(e.target.value); checkRefCode()}}/>
                 </div>
                 <span className="input_control pp">
                     <label htmlFor="pp">
