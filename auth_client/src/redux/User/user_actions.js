@@ -28,6 +28,7 @@ export const postEmail=(email)=>{
     
 }
 
+
 export const verifyEmailCode=(email,token,verificationCode)=>{
     
     const body={email,token,verificationCode};
@@ -51,27 +52,25 @@ export const verifyEmailCode=(email,token,verificationCode)=>{
                          isLogin:results.isLogin
                 }})     
                 try {
-                    if(parseRes.results.isLogin="true"){
-
+                    if(parseRes.results.isLogin="true"){  //Firing SIGN_UP DISPATCH IF ALREADY EXISTING USER IS VERIFIED
                         const user=results.user
                         const firstName=user.firstName
                         const phoneNumber=user.phoneNumber
                         const user_id=user._id
                         const user_token=user.token
-                        
+        
                         localStorage.setItem("auth",`Bearer ${user_id,user_token}`)
                         localStorage.setItem("USER_ID",user_id)
                         localStorage.setItem("AUTH_TOKEN",user_token)
             
                         dispatch({
-                            type:actionTypes.SIGN_UP,
+                            type:actionTypes.SIGN_UP,       
                                 payload:{
                                    firstName: firstName,
                                    phoneNumber:phoneNumber,
                                    auth_token:user_token,
                                    user_id:user_id
-                                }
-                        })           
+                                }})           
                     }else{
                       
                           console.log("user must Sign up")           
@@ -117,16 +116,16 @@ export const signUp=(firstName,email,token,referredCodeKey,phoneNumber,agreeToPr
        //console.log(parseRes);
 
        
-        if(parseRes.message==="User signed up successfully."){
+        if(parseRes.message==="User signed up successfully."){ 
 
             const user=parseRes.results.user
             
             const user_id=user._id
             const user_token=user.token
             
-            localStorage.setItem("auth",`Bearer ${user_id,user_token}`)
-            localStorage.setItem("USER_ID",user_id)
-            localStorage.setItem("AUTH_TOKEN",user_token)
+            localStorage.setItem("auth",`Bearer ${user_id,user_token}`) //AS MENTIONED IN THE README
+            localStorage.setItem("USER_ID",user_id) //FOR OTHER CONVENIENCE
+            localStorage.setItem("AUTH_TOKEN",user_token) //FOR OTHER CONVENIENCE
 
             dispatch({
                 type:actionTypes.SIGN_UP,
