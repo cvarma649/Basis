@@ -12,14 +12,15 @@ function LoginPage() {
     const [email,setEmail]=useState("");
     const [message,setMessage]=useState("");
 
+    //reRouting
     const path="/verifyCode";
     let history = useHistory();
     const reRoute=()=>{
         history.push(path);
     }
 
+    //submitHandler
     const verifyEmail=async(e)=>{ 
-       
         e.preventDefault();
         if(email.length>0){
        postEmail(email).then(
@@ -27,15 +28,11 @@ function LoginPage() {
        );
        if(state){
            reRoute("/verifyCode");
-       } 
-       
-       }else{
+       }}else{
            setMessage("Type Something")
-       }
-    }
+       }}
 
-
-    useEffect(()=>refresh(),[])
+    useEffect(()=>refresh(),[]) //refresh to initialState
 
     return (
         <div>
