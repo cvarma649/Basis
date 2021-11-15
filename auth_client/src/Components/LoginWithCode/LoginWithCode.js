@@ -14,7 +14,7 @@ function LoginWithCode() {
     const history=useHistory();
     const reRouteTo=(p)=>history.push(p)
     const isLogin=state.isLogin
-    const [auth,setAuth]=useState(false)
+
 
 
 

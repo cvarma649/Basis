@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom';
 
 function LoginPage() {
     const dispatch = useDispatch();
-    const {postEmail,verifyEmailCode,refresh}=bindActionCreators(actionCreators,dispatch)
+    const {postEmail,refresh}=bindActionCreators(actionCreators,dispatch)
     const state=useSelector((state)=>state)
     const [email,setEmail]=useState("");
     const [message,setMessage]=useState("");

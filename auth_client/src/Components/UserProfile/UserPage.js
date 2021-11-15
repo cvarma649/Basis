@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 
 function UserPage() {
     const dispatch = useDispatch();
-    const {getUser,logOut}=bindActionCreators(actionCreators,dispatch)
+    const {logOut}=bindActionCreators(actionCreators,dispatch)
     const state=useSelector((state)=>state.user_reducer)
     const firstName=state.user.firstName
     const phoneNumber=state.user.phoneNumber

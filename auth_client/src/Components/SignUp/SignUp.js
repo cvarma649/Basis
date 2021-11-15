@@ -8,7 +8,7 @@ import "./SignUp.css";
 
 function SignUp(props) {
     const dispatch = useDispatch();
-    const {signUp,checkRef,getUser,getState}=bindActionCreators(actionCreators,dispatch)
+    const {signUp,checkRef,getUser}=bindActionCreators(actionCreators,dispatch)
     const state=useSelector((state)=>state.user_reducer)
     const [phoneNum,setPhoneNum]=useState("");
     const [firstName,setFirstName]=useState("");
@@ -71,7 +71,7 @@ function SignUp(props) {
     return (
         <div className="form_container">
 
-            <h2>Please Type the token sent on your email Id</h2>
+            <h2>Please Sign Up First</h2>
             <form className="form_control" onSubmit={signup}>
 
                 <div className="input_control">
