@@ -4,7 +4,6 @@ const INITIAL_STATE={
     user:{
         firstName:"",
         phoneNumber:"", 
-      
         user_id:""
     },
     email:"",
@@ -19,6 +18,7 @@ const INITIAL_STATE={
 }
 
 const user_reducer=(state=INITIAL_STATE,action)=>{
+    //Initial Email Sent to API
     if(action.type===actionTypes.POST_EMAIL){
        return{
         ...state,
@@ -27,13 +27,16 @@ const user_reducer=(state=INITIAL_STATE,action)=>{
        email:action.payload.email,
        newUser:{...state.isLogin="true"?false:true}
        }}
+    
+    //VERIFICATION CODE VALIDATION
     if(action.type===actionTypes.VERIFY_EMAIL_TOKEN){
         return{
             ...state,
             emailVerified:action.payload.emailVerified,
             isLogin:action.payload.isLogin
-        }
-    }if(action.type===actionTypes.LOG_IN){
+     }}
+    //LOGIN USER
+    if(action.type===actionTypes.LOG_IN){
         return{
             ...state,
             isAuthenticated:state.isLogin==="true" && state.emailVerified==="true" ? true:false,
@@ -41,25 +44,26 @@ const user_reducer=(state=INITIAL_STATE,action)=>{
                 ...state.user,user_id:action.payload.user_id
             }, auth_token:action.payload.user_token
         }
-    }if(action.type===actionTypes.SIGN_UP){
-  
-        return{
-            
+    }
+    //SIGN_UP
+    if(action.type===actionTypes.SIGN_UP){
+        return{   
             ...state,
             isLogin:true,
             user:{
                 ...state.user,firstName:action.payload.firstName,phoneNumber:action.payload.phoneNumber,user_id:action.payload.user_id
-            },auth_token:action.payload.auth_token,
-           
-            
-        }
-    }if(action.type===actionTypes.SET_FAILURE_MSG){
+            },auth_token:action.payload.auth_token,      
+        }}
+    //SET FAILURE MESSAGE
+    if(action.type===actionTypes.SET_FAILURE_MSG){
        return{
            ...state,
            failureMessage:action.payload.message,
            loading:true
        }
-    }if(action.type===actionTypes.REFRESH){
+    }
+     //REFRESH TO INITAL STATE
+    if(action.type===actionTypes.REFRESH){
         return{
             ...state,
             emailVerified:INITIAL_STATE.emailVerified,
@@ -71,28 +75,38 @@ const user_reducer=(state=INITIAL_STATE,action)=>{
             auth_token:INITIAL_STATE.auth_token,
             failureMessage:INITIAL_STATE.failureMessage
         }
-    }if(action.type===actionTypes.GETSTATE){
+    }
+     //GETSTATE AFTER LOADING
+    if(action.type===actionTypes.GETSTATE){
         return {
             ...state,
             loading:false,
         }
-    }if(action.type===actionTypes.RESEND_TOKEN){
+    }
+    //RESEND VERIFICATION TOKEN
+    if(action.type===actionTypes.RESEND_TOKEN){
         return {
             ...state,
             failureMessage:action.payload.message
         }
-    }if(action.type===actionTypes.CHECK_REF){
+    }
+    //CHECK REF-CODE
+    if(action.type===actionTypes.CHECK_REF){
         return{
             ...state,
             failureMessage:action.payload.message
         }
-    }if(action.type===actionTypes.GET_USER){
+    }
+    //GET USER_INFO
+    if(action.type===actionTypes.GET_USER){
         return{
             ...state,
             loading:false,
             ...state.user
         }
-    }if(action.type===actionTypes.LOG_OUT){
+    }
+    //LOGOUT
+    if(action.type===actionTypes.LOG_OUT){
         return{
             ...state,
             ...INITIAL_STATE
