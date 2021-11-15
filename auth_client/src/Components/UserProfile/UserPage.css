@@ -1,0 +1,10 @@
+.h2s h2 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 2vh;
+}
+
+.h2s button {
+  margin-top: 2.2vh;
+}

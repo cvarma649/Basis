@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.app-container {
+  margin-top: 5vh;
+  color: rgb(0, 114, 134);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .app-container {
+    margin-bottom: -20vh;
+  }
+  .app-container h1 {
+    font-size: 6vw;
+  }
+}

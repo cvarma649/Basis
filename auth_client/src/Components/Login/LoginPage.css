@@ -1,0 +1,120 @@
+.form_container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vh 5vw;
+  margin: 10vw;
+  border-radius: 20px;
+  margin-top: 6.5vh;
+  background-color: rgb(29, 182, 187);
+}
+
+.form_container h1 {
+  font-size: 2.7vw;
+  color: rgb(252, 249, 255);
+  margin-bottom: 3vh;
+  text-align: center;
+}
+
+.input_control {
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input_control input {
+  padding: 1.2vw;
+  margin: 0 8vw;
+  height: 2vh;
+  border: 1px solid rgb(204, 202, 202);
+  border-radius: 4.3px;
+  font-size: 1.3vw;
+  color: rgb(42, 43, 43);
+}
+.input_control input:focus {
+  outline-style: none;
+}
+
+.input_control button {
+  align-self: center;
+  max-width: 30vw;
+  padding: 1vh 3vw;
+  align-items: center;
+
+  color: rgb(22, 106, 128);
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  font-size: 2.5vh;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+ 
+}
+
+.input_control button:hover {
+  background-color: rgb(2, 109, 104);
+  border: none;
+  color: white;
+}
+.input_control button:focus {
+  background-color: #017074;
+  outline-style: unset;
+  color: white;
+}
+.form_container p{
+  color:white;
+}
+
+/*small Screen*/
+@media only screen and (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .form_container h1 {
+    font-size: 5vw;
+    color: rgb(252, 249, 255);
+    margin-bottom: 3vh;
+    text-align: center;
+  }
+
+  .input_control input {
+    padding: 1.5vw;
+    margin: 0 3vw;
+    height: 3vh;
+    border: 1px solid rgb(204, 202, 202);
+    border-radius: 4.3px;
+    font-size: 2.7vw;
+  }
+  .input_control button {
+    align-self: center;
+    max-width: 30vw;
+    padding: 0.5vh 2vw;
+    align-items: center;
+    color: rgb(22, 106, 128);
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(233, 233, 233);
+    font-size: 1.4vh;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+  }
+
+  .input_control button:hover {
+    background-color: rgb(2, 109, 104);
+    border: none;
+    color: white;
+  }
+  .input_control button:focus {
+    background-color: #017074;
+    outline-style: unset;
+    color: white;
+  }
+}

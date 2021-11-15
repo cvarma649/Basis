@@ -1,0 +1,12 @@
+export const LOG_IN="LOG_IN";
+export const POST_EMAIL="POST_EMAIL";
+export const REFRESH="REFRESH";
+export const GET_FAILURE_MSG="GET_FAILURE_MSG"
+export const SET_FAILURE_MSG="SET_FAILURE_MSG"
+export const SIGN_UP="SIGN_UP";
+export const VERIFY_EMAIL_TOKEN="VERIFY_EMAIL_TOKEN";
+export const RESEND_TOKEN="RESEND_TOKEN";
+export const LOG_OUT="LOG_OUT";
+export const GET_USER="GET_USER";
+export const CHECK_REF="CHECK_REF";
+export const GETSTATE="GETSTATE"
